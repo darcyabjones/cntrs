@@ -5,24 +5,27 @@
 //! and to add some more documentation etc.
 
 
-use std::collections::hash_map::{HashMap, Entry, Keys, Values};
+use std::collections::hash_map::{HashMap, Entry};
 use std::fmt;
 use std::hash::Hash;
 use std::iter::{FromIterator, IntoIterator};
 use std::default::Default;
 
+
 /// A data structure for exact frequency counts.
 #[derive(Clone)]
 pub struct Counter<T> {
-    data: HashMap<T, u64>,
-    size: u64
+    data: HashMap<T, usize>,
+    size: usize
 }
+
 
 impl<T: fmt::Debug + Eq + Hash> fmt::Debug for Counter<T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{:?}", self.data)
     }
 }
+
 
 impl<T: Eq + Hash> Counter<T> {
 
@@ -111,7 +114,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// counter.add('a');
     /// assert_eq!(counter.count(&'a'), 1);
     /// ```
-    pub fn count(&self, element: &T) -> u64 {
+    pub fn count(&self, element: &T) -> usize {
         *self.data.get(element).unwrap_or(&0)
     }
 
@@ -129,7 +132,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// let count = counter.count_sum(&[b'g', b'c']);
     /// assert_eq!(count, 2);
     /// ```
-    pub fn count_sum(&self, elements: &[T]) -> u64 {
+    pub fn count_sum(&self, elements: &[T]) -> usize {
         // For some reason `sum` won't work here, so using explicit fold.
         elements.iter()
             .map(|e| self.count(e))
@@ -186,6 +189,7 @@ impl<T: Eq + Hash> Counter<T> {
 
 }
 
+
 impl<T: Eq + Hash> Default for Counter<T> {
 
     /// Initialises the Counter counter with predefined number.
@@ -196,6 +200,7 @@ impl<T: Eq + Hash> Default for Counter<T> {
         Self::new(100)
     }
 }
+
 
 impl<T: Eq + Hash> FromIterator<T> for Counter<T> {
 
@@ -227,6 +232,7 @@ impl<T: Eq + Hash> FromIterator<T> for Counter<T> {
         v
     }
 }
+
 
 impl<T: Eq + Hash> Extend<T> for Counter<T> {
 
