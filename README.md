@@ -1,4 +1,4 @@
-# cntrs
+# countrs
 
 A simple data-structure to count elements from an iterable.
 Essentially, it's just a `Map` with an incrementer and a default return.
