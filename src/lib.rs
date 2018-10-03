@@ -34,7 +34,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     ///
     /// let mut counter = Counter::new(20);
     ///
@@ -51,7 +51,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     ///
     /// let mut counter = Counter::new(5);
     ///
@@ -70,7 +70,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     ///
     /// let mut counter = Counter::new(5);
     ///
@@ -88,7 +88,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     ///
     /// let mut counter = Counter::new(5);
     ///
@@ -106,7 +106,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     ///
     /// let mut counter = Counter::new(5);
     ///
@@ -123,7 +123,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     /// let counter: Counter<u8> = "atgc".bytes().collect();
     ///
     /// let count = counter.count_sum(b"gc");
@@ -145,7 +145,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     ///
     /// let mut counter = Counter::new(5);
     ///
@@ -170,7 +170,7 @@ impl<T: Eq + Hash> Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     /// let counter: Counter<u8> = "atgc".bytes().collect();
     ///
     /// let prop = counter.prop_sum(b"gc");
@@ -217,7 +217,7 @@ impl<T: Eq + Hash> FromIterator<T> for Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     /// use std::iter::FromIterator;
     /// 
     /// let c1 = Counter::from_iter("aaabbbc".chars());
@@ -241,7 +241,7 @@ impl<T: Eq + Hash> Extend<T> for Counter<T> {
     /// # Examples
     ///
     /// ```rust
-    /// use cntrs::Counter;
+    /// use countrs::Counter;
     /// 
     /// let mut counter = Counter::default();
     /// counter.extend("aaaabbbc".chars());
